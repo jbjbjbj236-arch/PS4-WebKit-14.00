@@ -29,6 +29,7 @@ References:
 - `src/iso-inspector.js` — local string/signature scanner; no upload.
 - `src/browser-diagnostics.js` — harmless browser capability report.
 - `docs/ISO_AUDIT.md` — extracted contents, hashes, and safety findings.
+- `docs/PORTABILITY_MATRIX.md` — BD-J to browser feasibility map.
 - `docs/REVERSE_ENGINEERING.md` — workflow and portability boundaries.
 
 ## Safety and scope
