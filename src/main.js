@@ -30,5 +30,5 @@ scanButton.addEventListener("click", async () => {
 });
 document.querySelector("#runDiagnostics").addEventListener("click", () => {
   const checks = collectBrowserDiagnostics();
-  document.querySelector("#diagnostics").textContent = Object.entries(checks).map(([key,value]) => `${key}: ${value}`).join("\n");
+  document.querySelector("#diagnosticsOutput").textContent = Object.entries(checks).map(([key,value]) => `${key}: ${value}`).join("\n");
 });
