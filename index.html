@@ -1,58 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#090b12">
-  <meta name="description" content="PS4 WebKit 14.00 research workspace — local BD-J image inspection and browser capability diagnostics.">
-  <title>PS4 WebKit 14.00 — Research Lab</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10131a">
+<title>PS4 WebKit 14.00 — Research Lab</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-  <nav class="topbar">
-    <a class="brand" href="#"><span class="brand-mark">P</span><span>WEBKIT<span class="brand-muted"> / LAB</span></span></a>
-    <div class="nav-links"><a href="#inspector">Inspector</a><a href="#diagnostics">Diagnostics</a><a href="#roadmap">Research notes</a><a class="repo-link" href="https://github.com/jbjbjbj236-arch/PS4-WebKit-14.00" target="_blank" rel="noreferrer">GitHub ↗</a></div>
-  </nav>
-  <main class="shell">
-    <header class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span> INDEPENDENT RESEARCH WORKSPACE <span class="version">FW 14.00</span></div>
-        <h1>PS4 WebKit<br><span>Research Lab.</span></h1>
-        <p class="hero-sub">A clean-room workspace for inspecting BD-J structures and understanding browser capabilities on the path toward a JavaScript reimplementation.</p>
-        <div class="hero-actions"><a class="button primary" href="#inspector">Open ISO inspector <span>↓</span></a><a class="button secondary" href="https://github.com/jbjbjbj236-arch/PS4-WebKit-14.00" target="_blank" rel="noreferrer">View source ↗</a></div>
-      </div>
-      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="core"><span>14.00</span><small>RESEARCH</small></div><div class="art-label label-top">BROWSER ENVIRONMENT</div><div class="art-label label-bottom">BD-J / ISO ANALYSIS</div></div>
-    </header>
-    <div class="status-banner"><span class="status-icon">!</span><div><strong>Research scaffold only</strong><p>This project is not a jailbreak, does not exploit a PS4, and does not execute payloads. No WebKit vulnerability or exploit chain is claimed.</p></div><span class="status-chip">NON-EXPLOIT</span></div>
-    <section class="section" id="inspector">
-      <div class="section-heading"><div><div class="eyebrow">01 — LOCAL FILE ANALYSIS</div><h2>BD-J image inspector</h2><p>Choose the original ISO to scan for Blu-ray and Java markers.</p></div><span class="section-index">/ 01</span></div>
-      <div class="tool-card">
-        <div class="tool-top"><div class="tool-symbol">⌁</div><div><strong>hen.iso</strong><small>UDF / BD-J structure scan</small></div><span class="local-tag">LOCAL ONLY</span></div>
-        <label class="dropzone" for="isoFile"><span class="upload-icon">＋</span><strong>Select an ISO image</strong><small>Choose hen.iso from your device · Nothing is uploaded</small><input id="isoFile" type="file" accept=".iso,application/octet-stream"></label>
-        <div id="fileMeta" class="file-meta">No image selected.</div>
-        <button id="scanIso" class="button primary scan-button" disabled>Run local scan <span>→</span></button>
-        <div id="isoResults" class="results" aria-live="polite">Awaiting an ISO file.</div>
-      </div>
-    </section>
-    <section class="section" id="diagnostics">
-      <div class="section-heading"><div><div class="eyebrow">02 — ENVIRONMENT REPORT</div><h2>Browser diagnostics</h2><p>Check standard browser APIs without probing for vulnerabilities.</p></div><span class="section-index">/ 02</span></div>
-      <div class="tool-card diagnostics-card"><div class="tool-top"><div class="tool-symbol">⌘</div><div><strong>Runtime capability report</strong><small>Web APIs · browser environment</small></div><span class="local-tag">SAFE CHECKS</span></div><button id="runDiagnostics" class="button secondary">Run diagnostics <span>→</span></button><div id="diagnosticsOutput" class="results" aria-live="polite">Diagnostics have not been run.</div></div>
-    </section>
-    <section class="section" id="roadmap">
-      <div class="section-heading"><div><div class="eyebrow">03 — INVESTIGATION PATH</div><h2>From BD-J to browser logic</h2><p>The next steps are evidence-driven. A BD-J application cannot be converted wholesale into JavaScript.</p></div><span class="section-index">/ 03</span></div>
-      <div class="roadmap">
-        <article><span>01</span><div><strong>Extract the application</strong><p>Locate embedded JAR files, class files, and their dependencies inside the image.</p></div><em>Pending</em></article>
-        <article><span>02</span><div><strong>Inspect bytecode</strong><p>Disassemble Java classes and map their calls to BD-J and other runtime APIs.</p></div><em>Pending</em></article>
-        <article><span>03</span><div><strong>Classify behavior</strong><p>Separate portable application logic from Blu-ray-specific, native, kernel, and unknown behavior.</p></div><em>Pending</em></article>
-        <article><span>04</span><div><strong>Prototype portable pieces</strong><p>Recreate only the parts that have a clear browser-side equivalent, then test independently.</p></div><em>Pending</em></article>
-      </div>
-    </section>
-    <footer><a class="brand" href="#"><span class="brand-mark">P</span><span>WEBKIT<span class="brand-muted"> / LAB</span></span></a><span>PS4 WebKit 14.00 · Research workspace</span><a href="https://github.com/jbjbjbj236-arch/PS4-WebKit-14.00">Source repository ↗</a></footer>
-  </main>
-  <script type="module" src="src/main.js"></script>
+<main class="shell">
+<header>
+<p class="eyebrow">RESEARCH WORKSPACE / TARGET 14.00</p>
+<h1>PS4 WebKit <span>14.00</span></h1>
+<p class="sub">BD-J image inspection and browser capability diagnostics.</p>
+<div class="notice"><strong>Research scaffold only.</strong> This page does not jailbreak a PS4, test vulnerabilities, or execute payloads.</div>
+<div class="notice"><strong>Do not run the supplied ISO.</strong> Its NOTICE warns that the Hx stage may write unknown kernel objects, including on a failed run.</div>
+</header>
+<section class="panel">
+<div class="section-head"><div><p class="eyebrow">01 / INPUT</p><h2>Inspect the BD-J image</h2></div><span class="tag">LOCAL ONLY</span></div>
+<p>Select the original ISO. It is read locally in this browser and is never uploaded.</p>
+<label class="file-picker">Choose hen.iso<input id="isoFile" type="file" accept=".iso,application/octet-stream"></label>
+<div id="fileMeta" class="muted">No image selected.</div>
+<button id="scanIso" disabled>Scan image</button>
+<div id="isoResults" class="results" aria-live="polite">Waiting for an ISO.</div>
+</section>
+<section class="panel">
+<div class="section-head"><div><p class="eyebrow">02 / ENVIRONMENT</p><h2>Browser diagnostics</h2></div><span class="tag">NON-EXPLOIT</span></div>
+<p>Reports ordinary browser APIs and user-agent information. These checks do not test or trigger vulnerabilities.</p>
+<button id="runDiagnostics">Run diagnostics</button>
+<div id="diagnostics" class="results" aria-live="polite">Not run yet.</div>
+</section>
+<section class="panel">
+<p class="eyebrow">03 / VERIFIED ISO FINDINGS</p>
+<h2>What the image contains</h2>
+<ul>
+<li>UDF 2.x Blu-ray image with a BDJO descriptor naming <code>org.bdj.InitXlet</code>.</li>
+<li><code>BDMV/JAR/00000.jar</code> contains the BD-J Xlet, supporting classes, metadata tables, and <code>bonk/hen.bin</code>.</li>
+<li>The Xlet uses BD-J/TV APIs and AWT; these are not browser JavaScript APIs.</li>
+<li>The embedded Hx/HEN stage is not safe to execute based on the warning in the supplied NOTICE.</li>
+</ul>
+<p class="muted">The BD-J application is not itself a WebKit exploit. Browser-side JavaScript cannot replace the missing browser sandbox and kernel privilege stages.</p>
+<p><a href="docs/ISO_AUDIT.md">Read the full ISO audit</a> · <a href="docs/REVERSE_ENGINEERING.md">Read reverse-engineering notes</a></p>
+</section>
+<footer>PS4 WebKit 14.00 · Static analysis only · No payload execution</footer>
+</main>
+<script type="module" src="src/main.js"></script>
 </body>
 </html>
