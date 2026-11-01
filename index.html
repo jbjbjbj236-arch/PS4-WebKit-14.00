@@ -1,25 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090b12">
-<meta name="description" content="PS4 WebKit 14.00 research workspace — local BD-J image inspection and browser capability diagnostics.">
-<title>PS4 WebKit 14.00 — Research Lab</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111713">
+  <title>Hard Time III — Browser Edition</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js"}}
+  </script>
 </head>
-<body><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-<nav class="topbar"><a class="brand" href="#"><span class="brand-mark">P</span><span>WEBKIT<span class="brand-muted"> / LAB</span></span></a><div class="nav-links"><a href="#inspector">Inspector</a><a href="#diagnostics">Diagnostics</a><a href="#roadmap">Research notes</a><a class="repo-link" href="https://github.com/jbjbjbj236-arch/PS4-WebKit-14.00" target="_blank" rel="noreferrer">GitHub ↗</a></div></nav>
-<main class="shell">
-<header class="hero"><div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> INDEPENDENT RESEARCH WORKSPACE <span class="version">FW 14.00</span></div><h1>PS4 WebKit<br><span>Research Lab.</span></h1><p class="hero-sub">A clean-room workspace for inspecting BD-J structures and understanding browser capabilities on the path toward a JavaScript reimplementation.</p><div class="hero-actions"><a class="button primary" href="#inspector">Open ISO inspector <span>↓</span></a><a class="button secondary" href="https://github.com/jbjbjbj236-arch/PS4-WebKit-14.00" target="_blank" rel="noreferrer">View source ↗</a></div></div>
-<div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="core"><span>14.00</span><small>RESEARCH</small></div><div class="art-label label-top">BROWSER ENVIRONMENT</div><div class="art-label label-bottom">BD-J / ISO ANALYSIS</div></div></header>
-<div class="status-banner"><span class="status-icon">!</span><div><strong>Research scaffold only</strong><p>This project is not a jailbreak, does not exploit a PS4, and does not execute payloads. No WebKit vulnerability or exploit chain is claimed.</p></div><span class="status-chip">NON-EXPLOIT</span></div>
-<section class="section" id="inspector"><div class="section-heading"><div><div class="eyebrow">01 — LOCAL FILE ANALYSIS</div><h2>BD-J image inspector</h2><p>Choose the original ISO to scan for Blu-ray and Java markers.</p></div><span class="section-index">/ 01</span></div>
-<div class="tool-card"><div class="tool-top"><div class="tool-symbol">⌁</div><div><strong>hen.iso</strong><small>UDF / BD-J structure scan</small></div><span class="local-tag">LOCAL ONLY</span></div>
-<label class="dropzone" for="isoFile"><span class="upload-icon">＋</span><strong>Select an ISO image</strong><small>Choose hen.iso from your device · Nothing is uploaded</small><input id="isoFile" type="file" accept=".iso,application/octet-stream"></label>
-<div id="fileMeta" class="file-meta">No image selected.</div><button id="scanIso" class="button primary scan-button" disabled>Run local scan <span>→</span></button><div id="isoResults" class="results" aria-live="polite">Awaiting an ISO file.</div></div></section>
-<section class="section" id="diagnostics"><div class="section-heading"><div><div class="eyebrow">02 — ENVIRONMENT REPORT</div><h2>Browser diagnostics</h2><p>Check standard browser APIs without probing for vulnerabilities.</p></div><span class="section-index">/ 02</span></div>
-<div class="tool-card diagnostics-card"><div class="tool-top"><div class="tool-symbol">⌘</div><div><strong>Runtime capability report</strong><small>Web APIs · browser environment</small></div><span class="local-tag">SAFE CHECKS</span></div><button id="runDiagnostics" class="button secondary">Run diagnostics <span>→</span></button><div id="diagnosticsOutput" class="results" aria-live="polite">Diagnostics have not been run.</div></div></section>
-<section class="section" id="roadmap"><div class="section-heading"><div><div class="eyebrow">03 — INVESTIGATION PATH</div><h2>From BD-J to browser logic</h2><p>The next steps are evidence-driven. A BD-J application cannot be converted wholesale into JavaScript.</p></div><span class="section-index">/ 03</span></div>
-<div class="roadmap"><article><span>01</span><div><strong>Extract the application</strong><p>Locate embedded JAR files, class files, and their dependencies inside the image.</p></div><em>Pending</em></article><article><span>02</span><div><strong>Inspect bytecode</strong><p>Disassemble Java classes and map their calls to BD-J and other runtime APIs.</p></div><em>Pending</em></article><article><span>03</span><div><strong>Classify behavior</strong><p>Separate portable application logic from Blu-ray-specific, native, kernel, and unknown behavior.</p></div><em>Pending</em></article><article><span>04</span><div><strong>Prototype portable pieces</strong><p>Recreate only the parts that have a clear browser-side equivalent, then test independently.</p></div><em>Pending</em></article></div></section>
-<footer><a class="brand" href="#"><span class="brand-mark">P</span><span>WEBKIT<span class="brand-muted"> / LAB</span></span></a><span>PS4 WebKit 14.00 · Research workspace</span><a href="https://github.com/jbjbjbj236-arch/PS4-WebKit-14.00">Source repository ↗</a></footer>
-</main><script type="module" src="src/main.js"></script></body></html>
+<body>
+  <div id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="grain"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Hard Time Browser Edition home"><span class="brand-mark">HT</span><span>HARD TIME <b>III</b><small>BROWSER EDITION</small></span></a>
+      <div class="top-actions"><span class="live-dot">SIMULATION LIVE</span><button id="save-btn" class="small-btn">SAVE</button><button id="menu-btn" class="small-btn">MENU</button></div>
+    </header>
+    <section class="hud">
+      <div class="profile panel"><div class="avatar">R</div><div><strong id="player-name">Rookie</strong><small>INMATE · BLOCK A</small></div><div class="cash">$<span id="cash">25</span></div></div>
+      <div class="stats panel">
+        <div class="stat"><span>HEALTH</span><div class="meter"><i id="health-bar" class="health" style="width:100%"></i></div><b id="health-value">100</b></div>
+        <div class="stat"><span>STAMINA</span><div class="meter"><i id="stamina-bar" class="stamina" style="width:100%"></i></div><b id="stamina-value">100</b></div>
+        <div class="stat"><span>REPUTATION</span><div class="meter"><i id="rep-bar" class="rep" style="width:12%"></i></div><b id="rep-value">12</b></div>
+      </div>
+    </section>
+    <div class="right-hud"><div class="clock panel"><small>DAY 01 · MONDAY</small><strong id="clock">08:00</strong><span>BLOCK A / YARD</span></div><div class="objective panel"><small>CURRENT OBJECTIVE</small><strong id="objective">Get familiar with the block.</strong></div></div>
+    <div class="crosshair" id="crosshair">+</div>
+    <div class="bottom-hud"><div class="controls panel"><span><kbd>W A S D</kbd> MOVE</span><span><kbd>SHIFT</kbd> RUN</span><span><kbd>SPACE</kbd> JUMP</span><span><kbd>E</kbd> INTERACT</span><span><kbd>F</kbd> ATTACK</span><span><kbd>ESC</kbd> MENU</span></div><div id="toast" class="toast"></div></div>
+    <div id="start-screen" class="overlay">
+      <div class="start-card">
+        <div class="eyebrow">A LIFE BEHIND BARS</div><h1>HARD TIME <em>III</em></h1><p class="subtitle">YOUR STORY. YOUR RULES. YOUR TIME.</p>
+        <p class="intro">A browser-based prison-life sandbox. Explore the block, meet its residents, build your reputation, and decide how you'll survive.</p>
+        <button id="start-btn" class="primary-btn">ENTER THE YARD <span>→</span></button>
+        <div class="start-foot"><span>WASD TO MOVE</span><span>·</span><span>CLICK TO LOOK</span><span>·</span><span>ESC FOR MENU</span></div>
+      </div>
+    </div>
+    <div id="menu-screen" class="overlay hidden"><div class="modal-card"><button class="x-btn" data-close>×</button><div class="eyebrow">PAUSE MENU</div><h2>TAKE A BREATHER.</h2><div class="menu-grid"><button data-action="resume">RESUME GAME <small>Back to the yard</small></button><button data-action="character">CHARACTER <small>Edit your inmate</small></button><button data-action="mods">MOD MANAGER <small>Import custom content</small></button><button data-action="save">SAVE GAME <small>Store progress locally</small></button></div><p class="modal-note">Progress is stored in this browser on this device.</p></div></div>
+    <div id="editor-screen" class="overlay hidden"><div class="modal-card editor-card"><button class="x-btn" data-close>×</button><div class="eyebrow">INMATE RECORD</div><h2>MAKE YOURSELF.</h2><label>NAME<input id="edit-name" maxlength="18" value="Rookie"></label><label>SKIN TONE<select id="edit-skin"><option value="#b97850">Warm</option><option value="#e0b18a">Light</option><option value="#754a37">Deep</option><option value="#c98e69">Tan</option></select></label><label>OUTFIT<select id="edit-outfit"><option value="#b8b8a8">Standard khaki</option><option value="#526d91">Blue uniform</option><option value="#8b5550">Red uniform</option><option value="#555b50">Olive uniform</option></select></label><button id="apply-character" class="primary-btn">APPLY CHANGES</button></div></div>
+    <div id="mods-screen" class="overlay hidden"><div class="modal-card"><button class="x-btn" data-close>×</button><div class="eyebrow">COMMUNITY CONTENT</div><h2>MOD MANAGER.</h2><p class="intro">Load JSON content packs. Mods are validated and applied locally in this browser.</p><div class="mod-drop"><input id="mod-file" type="file" accept=".json,application/json"><span>＋</span><b>CHOOSE A MOD FILE</b><small>JSON mod packs · no executable scripts</small></div><div id="mod-list" class="mod-list"><p class="empty">No mods installed yet.</p></div><button id="download-template" class="secondary-btn">DOWNLOAD MOD TEMPLATE</button></div></div>
+    <div id="notice" class="notice hidden"></div>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
